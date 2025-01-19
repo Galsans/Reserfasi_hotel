@@ -37,13 +37,14 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-        Rooms::create([
-            "no_room" => '10202',
-            "facilities" => 'lorem ipsum dolor sit emet',
-            "type_room" => 'deluxe',
-            "price" => '200000',
-            "status" => 'tersedia',
-            "img" => 'public/rooms/UZle6uk2pw2CQFd2OnHqYilLFIx6Lv05zid2bS7W.jpg',
-        ]);
+        // Rooms::create([
+        //     "no_room" => '10202',
+        //     "facilities" => 'lorem ipsum dolor sit emet',
+        //     "type_room" => 'deluxe',
+        //     "price" => '200000',
+        //     "status" => 'tersedia',
+        //     "img" => 'public/rooms/UZle6uk2pw2CQFd2OnHqYilLFIx6Lv05zid2bS7W.jpg',
+        // ]);
+        $this->call(RoomSeeder::class);
     }
 }
