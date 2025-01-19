@@ -3,6 +3,8 @@
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ProfileEditController;
 use App\Http\Controllers\RoomsController;
+// use App\Http\Controllers\DashBoardController;
+use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,10 +19,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/',[WelcomeController::class, 'depan']);
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
@@ -40,6 +42,7 @@ Route::prefix('/dashboard')->middleware(['auth', 'verified'])->group(function ()
     Route::get('/', function () {
         return view('dashboard.app');
     })->name('dashboard');
+    
 
     Route::get('profile', [ProfileEditController::class, 'profile'])->name('profile.edit');
     Route::put('profile', [ProfileEditController::class, 'profileUpdate'])->name('profile.update');
