@@ -27,6 +27,12 @@
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="">
+                <span class="menu-title">Bookings</span>
+                <i class="mdi mdi-book menu-icon"></i>
+        </li>
+        
+        <li class="nav-item">
             <a class="nav-link" href="{{ route('users.index') }}">
                 <span class="menu-title">Users</span>
                 <i class="mdi mdi-account menu-icon"></i>

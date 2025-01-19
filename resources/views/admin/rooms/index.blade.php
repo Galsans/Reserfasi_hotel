@@ -56,7 +56,23 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $items->no_room }}</td>
-                                            <td>{{ \Illuminate\Support\Str::limit($items->facilities, 20, '...') }}</td>
+                                            {{-- <td>{{ \Illuminate\Support\Str::limit($items->facilities, 20, '...') }}</td> --}}
+                                            <td>
+                                                @php
+                                                    $facilities = json_decode($items->facilities, true);
+
+                                                @endphp
+                                                @if (!empty($facilities))
+                                                    <ul>
+                                                        @foreach ($facilities as $facility)
+                                                            <li>{{ $facility }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                @else
+                                                    <span>Facilities not available</span>
+                                                @endif
+
+                                            </td>
                                             <td>
                                                 @if ($items->type_room === 'sucide')
                                                     <label
