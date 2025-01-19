@@ -82,7 +82,22 @@
                         <div class="details-row">
                             <i class="mdi mdi-clipboard-text-outline text-muted details-icon"></i>
                             <div class="details-label">Facilities</div>
-                            <div class="details-value">: {{ $rooms->facilities }}</div>
+                            <div class="details-value">
+                                @php
+                                    $facilities = json_decode($rooms->facilities, true);
+
+                                @endphp
+                                @if (!empty($facilities))
+                                    <ul>
+                                        @foreach ($facilities as $facility)
+                                            <li>{{ $facility }}</li>
+                                        @endforeach
+                                    </ul>
+                                @else
+                                    <span>Facilities not available</span>
+                                @endif
+
+                            </div>
                         </div>
                     </div>
 
