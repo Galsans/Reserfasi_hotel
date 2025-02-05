@@ -104,7 +104,7 @@
 
                     <!-- Action Buttons -->
                     <div class="mt-4 text-center">
-                        <a href="/book/{{ $rooms->id }}" class="btn btn-primary btn-lg me-2">
+                        <a href="{{ route('bookings.create', $rooms->id) }}" class="btn btn-primary btn-lg me-2">
                             <i class="mdi mdi-calendar-check me-2"></i>Book Now
                         </a>
                         <a href="{{ route('rooms.index') }}" class="btn btn-secondary btn-lg">
