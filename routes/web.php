@@ -69,7 +69,7 @@ Route::prefix('/dashboard')->middleware(['auth', 'verified'])->group(function ()
 
         // CRUD BOOKINGS
         Route::get('bookings', [BookingController::class, 'index'])->name('bookings.index');
-        Route::get('bookings-create', [BookingController::class, 'create'])->name('bookings.create');
+        Route::get('bookings/create/{id}', [BookingController::class, 'create'])->name('bookings.create');
         Route::post('bookings-store', [BookingController::class, 'store'])->name('bookings.store');
         Route::get('bookings-detail/{id}', [BookingController::class, 'show'])->name('bookings.show');
         Route::get('bookings-edit/{id}', [BookingController::class, 'edit'])->name('bookings.edit');
