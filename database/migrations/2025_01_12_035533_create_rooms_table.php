@@ -18,7 +18,7 @@ return new class extends Migration
             $table->enum('type_room', ['suite', 'deluxe', 'standard']);
             $table->integer('price');
             $table->enum('status', ['tersedia', 'terisi'])->default('tersedia');
-            $table->string('img');
+            $table->string('img');//tertete
             $table->timestamps();
         });
     }
