@@ -43,10 +43,10 @@
                         <input type="date" class="form-control" value="{{ date('Y-m-d', strtotime('+1 day')) }}">
                     </div>
 
-                    {{-- <div class="mb-3">
-                        <label class="form-label">Check-out</label>
-                        <input type="datetime-local" name="check_out" class="form-control" value="#" required>
-                    </div> --}}
+                    <div class="mb-3">
+                        <label class="form-label">Price</label>
+                        <input type="input" class="form-control" value="{{ $rooms->price }}" disabled>
+                    </div>
 
                     <div class="mb-3">
                         <label class="form-label">Jumlah Tamu</label>
