@@ -20,6 +20,7 @@ return new class extends Migration
             $table->dateTime('check_out');
             $table->integer('qty_person');
             $table->enum('status', ['pending', 'confirm', 'cancelled']);
+            $table->integer('total_price')->unsigned()->nullable();
             $table->timestamps();            
         });
     }
