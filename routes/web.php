@@ -75,5 +75,8 @@ Route::prefix('/dashboard')->middleware(['auth', 'verified'])->group(function ()
         Route::get('bookings-edit/{id}', [BookingController::class, 'edit'])->name('bookings.edit');
         Route::put('bookings-update/{id}', [BookingController::class, 'update'])->name('bookings.update');
         Route::delete('bookings-delete/{id}', [BookingController::class, 'destroy'])->name('bookings.destroy');
+        
+        Route::get('bookings/confirm/{id}', [BookingController::class, 'confirm'])->name('bookings.confirm');
+   
     });
 });

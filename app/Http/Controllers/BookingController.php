@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Booking;
 use App\Models\Rooms;
+use App\Models\User;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Auth;
 
 class BookingController extends Controller
 {
@@ -27,7 +29,8 @@ class BookingController extends Controller
         // $bookings = $id ? Booking::findOrFail($id) : new Booking();
         // $rooms = Rooms::where('status', 'tersedia')->get();
         $rooms = Rooms::findOrFail($id);
-        return view('admin.bookings.create', compact('rooms'));
+        $users = Auth::user()->id;
+        return view('admin.bookings.create', compact('rooms', 'users'));
     }
 
 
@@ -54,7 +57,22 @@ class BookingController extends Controller
         $bookings = Booking::create($input);
 
         Alert::success('Berhasil', 'Berhasil Menyimpan Data');
-        return redirect()->route('rooms.index');
+        return redirect()->route('admin.bookings.index');
+    }
+
+    public function confirm(Request $request,$id)
+    {
+        $rooms = Rooms::findOrFail($id);
+        // $users = Auth::user()->id;
+        $kode_bookings = 'BOOK-' . date('Ymd') . '-' . rand(1000, 9999);
+        
+        // $bookings->status = 'confirm';
+        // $bookings->save();
+        
+
+        Alert::success('Berhasil', 'Berhasil Mengkonfirmasi Booking');
+        return view('admin.bookings.check', compact('rooms', 'kode_bookings'));
+        // return redirect()->route('admin.bookings.check');
     }
 
     /**

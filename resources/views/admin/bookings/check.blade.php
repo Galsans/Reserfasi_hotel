@@ -16,11 +16,12 @@
 
                 <form action="#" method="POST">
                     @csrf
-
-                    {{-- <div class="mb-3">
+                    
+                    <div class="mb-3">
                         <label class="form-label">Kode Booking</label>
-                        <input type="text" class="form-control" value="#" disabled>
-                    </div> --}}
+                        <input type="text" class="form-control" value="{{ $kode_bookings }}" disabled>
+                        <input type="text" name="" value="{{$rooms->id}}" id="">
+                    </div>
 
                     {{-- <div class="mb-3">
                         <label class="form-label">Nama Pelanggan</label>
@@ -33,10 +34,14 @@
                             value="Room {{ $rooms->no_room }} - {{ $rooms->type_room }}" disabled>
                     </div>
 
-                    {{-- <div class="mb-3">
+                    <div class="mb-3">
                         <label class="form-label">Check-in</label>
-                        <input type="date" class="form-control" >
-                    </div> --}}
+                        <input type="date" class="form-control" value="{{ date('Y-m-d') }}" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Check-out</label>
+                        <input type="date" class="form-control" value="{{ date('Y-m-d', strtotime('+1 day')) }}">
+                    </div>
 
                     {{-- <div class="mb-3">
                         <label class="form-label">Check-out</label>
@@ -48,15 +53,15 @@
                         <input type="number" class="form-control">
                     </div>
 
-                    {{-- <div class="mb-3">
+                    <div class="mb-3">
                         <label class="form-label">Status</label>
                         <select name="status" class="form-control">
                             <option value="pending">Pending</option>
                             <option value="confirm">Confirmed</option>
                             <option value="cancelled">Cancelled</option>
                         </select>
-                    </div> --}}
-                    <a href="{{ route('bookings.confirm', $rooms->id) }}" class="btn btn-success">Konfirmasi Check Out</a>
+                    </div>
+                    <a href="#" class="btn btn-success">Konfirmasi Check Out</a>
                     {{-- <button type="submit" class="btn btn-success">Konfirmasi Check-out</button> --}}
                 </form>
             </div>
